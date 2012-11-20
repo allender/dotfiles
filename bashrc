@@ -9,6 +9,10 @@
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+# LESS command line options - put tabs at 3 characters
+export LESS="-x3 -R"
+export LESSOPEN='|~/.lessfilter %s'
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -33,6 +37,11 @@ export PATH=~/bin:$PATH
 case "$TERM" in
     xterm-256color) color_prompt=yes;;
 esac
+
+# for rxvt26 (which I use in cygwin), unset the display value - pretty much a hack
+if [ "$TERM" == "rxvt-256color" ] ; then
+    DISPLAY=
+fi
 
 PS1='\n\[\033[0;32m\d \t \n\[\033[0;31m\][\#] \[\033[01;34m\]\w\[\033[00m\]: '
 

@@ -7,8 +7,10 @@ call pathogen#infect()
 filetype plugin indent on
 
 set nocompatible			" No need to be compatible with VI anymore
+syntax on
 
-colorscheme xoria256
+set bg=dark
+colorscheme solarized
 
 " change the leader to be something a little easier
 let mapleader=","
