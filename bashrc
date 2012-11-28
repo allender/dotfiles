@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -16,9 +18,17 @@ export LESSOPEN='|~/.lessfilter %s'
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# account for spelling poblems when changing folders
+#shopt -s cdspell 
+
+# use CDPATH for better and easier movement between directories
+export CDPATH=.:~:~/projects
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

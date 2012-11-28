@@ -12,6 +12,12 @@ syntax on
 set bg=dark
 colorscheme solarized
 
+" if no gui and win32, then set better colorscheme that doesn't
+" mess up from dos prompt
+if has("win32")
+    echo "blahblah"
+endif
+
 " change the leader to be something a little easier
 let mapleader=","
 
