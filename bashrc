@@ -9,12 +9,24 @@
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+# LESS command line options - put tabs at 3 characters
+export LESS="-x3 -R"
+export LESSOPEN='|~/.lessfilter %s'
+
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# account for spelling poblems when changing folders
+#shopt -s cdspell 
+
+# use CDPATH for better and easier movement between directories
+export CDPATH=.:~:~/projects
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -33,6 +45,11 @@ export PATH=~/bin:$PATH
 case "$TERM" in
     xterm-256color) color_prompt=yes;;
 esac
+
+# for rxvt26 (which I use in cygwin), unset the display value - pretty much a hack
+if [ "$TERM" == "rxvt-256color" ] ; then
+    DISPLAY=
+fi
 
 PS1='\n\[\033[0;32m\d \t \n\[\033[0;31m\][\#] \[\033[01;34m\]\w\[\033[00m\]: '
 
