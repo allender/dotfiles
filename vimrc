@@ -9,6 +9,13 @@ filetype plugin indent on
 set nocompatible			" No need to be compatible with VI anymore
 syntax on
 
+" set the swap directory to some tmp folder
+if has("win32") || has("win64")
+    set directory=$TMP
+else
+    set directory=/tmp
+end
+
 set bg=dark
 colorscheme solarized
 

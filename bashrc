@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#
+# for gnome-terminal on Ubuntu, force the 256 color terminal
+if [ "$COLORTERM" == "gnome-terminal" ] ; then
+    export TERM=xterm-256color
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -32,7 +38,7 @@ export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export PATH=~/bin:$PATH
+export PATH=$PATH:~/bin:$HOME/projects/android-sdk-linux:$HOME/projects/android-sdk-linux/tools:$HOME/projects/android-sdk-linux/platform-tools:$HOME/projects/android-ndk-r8d
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
