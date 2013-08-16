@@ -108,3 +108,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# enable bashrc file specific to a machine
+if [ -f ~/.local_bashrc ] ; then
+    . ~/.local_bashrc
+fi
+
