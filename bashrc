@@ -26,7 +26,7 @@ shopt -s histappend
 #shopt -s cdspell 
 
 # use CDPATH for better and easier movement between directories
-export CDPATH=.:~:~/projects
+#export CDPATH=.:~:~/projects
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -38,7 +38,7 @@ export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export PATH=$PATH:~/bin:$HOME/projects/android-sdk-linux:$HOME/projects/android-sdk-linux/tools:$HOME/projects/android-sdk-linux/platform-tools:$HOME/projects/android-ndk-r8d
+export PATH=$PATH:~/bin
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -100,6 +100,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# other environment change
+export EDITOR=vim
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
