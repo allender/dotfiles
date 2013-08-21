@@ -38,7 +38,7 @@ for root,dirs,files in os.walk('.'):
 for bundle in git_bundles:
     bundle_name = bundle.rsplit('/', 1)[1].replace('.git','')
     print 'Cloning {0}'.format( bundle )
-    subprocess.call( ['git', 'clone', bundle], shell=True )
+    subprocess.call( ['git', 'clone', bundle] )
 
     # remove the .git folder in the bundle so that we can actually commit the
     # folders to git without having them look like sub repositories
