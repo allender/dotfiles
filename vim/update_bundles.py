@@ -9,9 +9,10 @@ import shutil
 import subprocess
 
 git_bundles = [
-        'git://github.com/tpope/vim-fugitive.git',
-        'git://github.com/altercation/vim-colors-solarized.git',
+    'git://github.com/tpope/vim-fugitive.git',
+    'git://github.com/altercation/vim-colors-solarized.git',
 	'git://repo.or.cz/vcscommand',
+    'https://github.com/scrooloose/nerdcommenter.git',
 ];
 
 # clear out folders in the bundle folder so that we can restore
