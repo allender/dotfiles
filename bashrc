@@ -29,7 +29,7 @@ shopt -s histappend
 #shopt -s cdspell 
 
 # use CDPATH for better and easier movement between directories
-export CDPATH=.:~:~/projects
+#export CDPATH=.:~:~/projects
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -40,6 +40,8 @@ export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+export PATH=$PATH:~/bin
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -102,6 +104,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# other environment change
+export EDITOR=vim
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -112,3 +117,9 @@ fi
 # make sure that we appropriate append history file all the time
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# enable bashrc file specific to a machine
+if [ -f ~/.local_bashrc ] ; then
+    . ~/.local_bashrc
+fi
+
