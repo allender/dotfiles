@@ -29,7 +29,7 @@ shopt -s histappend
 #shopt -s cdspell 
 
 # use CDPATH for better and easier movement between directories
-#export CDPATH=.:~:~/projects
+export CDPATH=.:~:~/projects
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
