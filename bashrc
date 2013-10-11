@@ -15,6 +15,9 @@ fi
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+# set the editor environment
+export EDITOR=vim
+
 # LESS command line options - put tabs at 3 characters
 export LESS="-x3 -R"
 export LESSOPEN='|~/.lessfilter %s'
@@ -37,8 +40,6 @@ export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-export PATH=$PATH:~/bin:$HOME/projects/android-sdk-linux:$HOME/projects/android-sdk-linux/tools:$HOME/projects/android-sdk-linux/platform-tools:$HOME/projects/android-ndk-r8d
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -108,3 +109,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# make sure that we appropriate append history file all the time
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
