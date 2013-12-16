@@ -35,9 +35,9 @@ endif
 nmap <leader>v :vsplit $MYVIMRC<CR>
 
 " Tab settings
-set tabstop=4				" tab width of 4
-set shiftwidth=4			" shift width of 4
-set softtabstop=4			" backspace removes 4 spaces
+set tabstop=3				" tab width of 4
+set shiftwidth=3			" shift width of 4
+set softtabstop=3			" backspace removes 4 spaces
 set expandtab				" always use spaces and not tabs
 
 set mouse=a
@@ -85,3 +85,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " other useful mappings
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+

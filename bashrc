@@ -18,10 +18,6 @@ HISTCONTROL=ignoreboth
 # set the editor environment
 export EDITOR=vim
 
-# LESS command line options - put tabs at 3 characters
-export LESS="-x3 -R"
-export LESSOPEN='|~/.lessfilter %s'
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -49,6 +45,10 @@ export PATH=$PATH:~/bin
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# LESS command line options - put tabs at 3 characters
+export LESS="-x3 -R"
+export LESSOPEN="|~/.lessfilter %s"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
