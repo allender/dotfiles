@@ -37,7 +37,7 @@ export HISTIGNORE="&:ls:ls -l:ll:[bf]g:exit"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export PATH=$PATH:~/bin
+export PATH=~/bin:$PATH
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
