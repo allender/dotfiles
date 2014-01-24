@@ -13,6 +13,7 @@ git_bundles = [
     'git://github.com/altercation/vim-colors-solarized.git',
 	'git://repo.or.cz/vcscommand',
     'https://github.com/scrooloose/nerdcommenter.git',
+    'https://github.com/scrooloose/nerdtree.git',
 ];
 
 # clear out folders in the bundle folder so that we can restore
