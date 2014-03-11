@@ -4,6 +4,7 @@
 "
 filetype off				"  Good idea to set this before calling pathogen
 call pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 
 set nocompatible			" No need to be compatible with VI anymore
@@ -12,18 +13,14 @@ syntax on
 " set the swap directory to some tmp folder
 if has("win32") || has("win64")
     set directory=$TMP
+    cd d:/projects    " hack for nerdtree
 else
     set directory=/tmp
+    cd ~/projects    " hack for nerdtree
 end
 
 set bg=dark
 colorscheme solarized
-
-" if no gui and win32, then set better colorscheme that doesn't
-" mess up from dos prompt
-if has("win32")
-    echo "blahblah"
-endif
 
 " change the leader to be something a little easier
 let mapleader=","
@@ -33,6 +30,8 @@ if has ("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 nmap <leader>v :vsplit $MYVIMRC<CR>
+
+map <leader>x :set filetype=xml<CR>
 
 " Tab settings
 set tabstop=3				" tab width of 4
