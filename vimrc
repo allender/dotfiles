@@ -39,6 +39,10 @@ set shiftwidth=3			" shift width of 4
 set softtabstop=3			" backspace removes 4 spaces
 set expandtab				" always use spaces and not tabs
 
+if exists ('g:vsvim_useeditordefaults')
+   set vsvim_useeditordefaults
+endif
+
 set mouse=a
 
 " have a different status line so that ruler can be shown on the left instead of far right which is annoying on widescreen monitors 
