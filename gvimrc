@@ -11,4 +11,4 @@ endif
 set guioptions+=c
 
 " come up with better default rows/columns
-set lines=55 columns=90
+set lines=55 columns=120
