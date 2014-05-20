@@ -87,6 +87,12 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" fold settings
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> za
+
 " other useful mappings
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
