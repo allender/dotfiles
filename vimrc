@@ -25,6 +25,9 @@ colorscheme solarized
 " change the leader to be something a little easier
 let mapleader=","
 
+" set xml folding
+let g:xml_syntax_folding=1 
+
 " settings allowing easier work with .vimrc
 if has ("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
