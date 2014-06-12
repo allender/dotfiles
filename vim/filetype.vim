@@ -5,6 +5,6 @@ endif
 
 augroup filetypedetect
    au! BufRead,BufNewFile *.vsex    setfiletype xml
-   au! BufRead,BufNewFile *.vse     setfiletype xml
+   au! BufRead,BufNewFile *.vse     setfiletype json 
 augroup END
 

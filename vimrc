@@ -46,6 +46,8 @@ if exists ('g:vsvim_useeditordefaults')
    set vsvim_useeditordefaults
 endif
 
+let g:vim_json_syntax_conceal = 0
+
 set mouse=a
 
 " have a different status line so that ruler can be shown on the left instead of far right which is annoying on widescreen monitors 
