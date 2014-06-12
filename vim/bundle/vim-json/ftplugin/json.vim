@@ -34,3 +34,4 @@ endif
 
 " always allow folding
 setlocal foldmethod=syntax
+setlocal nofoldenable
