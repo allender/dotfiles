@@ -15,6 +15,7 @@ git_bundles = [
    'https://github.com/scrooloose/nerdcommenter.git',
    'https://github.com/scrooloose/nerdtree.git',
    'https://github.com/elzr/vim-json.git',
+   'git://github.com/AndrewRadev/linediff.vim.git',
 ];
 
 # clear out folders in the bundle folder so that we can restore

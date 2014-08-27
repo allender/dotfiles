@@ -1,3 +1,8 @@
+" Vim syntax file
+" Language:	JSON
+" Maintainer:	Eli Parra <eli@elzr.com> https://github.com/elzr/vim-json
+" Last Change:	2014-05-20 added warning toggle
+
 "uncomment to enable folding of `{...}` and `[...]` blocks
 "setlocal foldmethod=syntax
 
@@ -31,7 +36,3 @@ if has('conceal')
 	"maybe g:vim_json_syntax_conceal could be settable to 0,1,2 to map
 	"directly to vim's conceallevels? unsure if anyone cares
 endif
-
-" always allow folding
-setlocal foldmethod=syntax
-setlocal nofoldenable
