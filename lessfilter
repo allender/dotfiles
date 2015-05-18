@@ -11,7 +11,7 @@ case "$1" in
     *)
         grep "#\!/bin/bash" "$1" > /dev/null
         if [ "$?" -eq "0" ]; then
-            pygmentize -O style=solarized -f 256 -l sh "$1"
+            pygmentize -O style=solarized256 -f 256 -l sh "$1"
         else
             exit 1
         fi
