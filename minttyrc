@@ -1,7 +1,7 @@
 BoldAsFont=no
 Transparency=low
 Term=xterm-256color
-Font=Inconsolata
+Font=Consolas
 FontHeight=11
 CopyAsRTF=no
 Columns=120

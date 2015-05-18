@@ -13,10 +13,8 @@ syntax on
 " set the swap directory to some tmp folder
 if has("win32") || has("win64")
     set directory=$TMP
-    cd d:/projects    " hack for nerdtree
 else
     set directory=/tmp
-    cd ~/projects    " hack for nerdtree
 end
 
 set bg=dark
@@ -26,7 +24,7 @@ colorscheme solarized
 let mapleader=","
 
 " set xml folding
-let g:xml_syntax_folding=1 
+let g:xml_syntax_folding=1
 
 " settings allowing easier work with .vimrc
 if has ("autocmd")
@@ -37,9 +35,9 @@ nmap <leader>v :vsplit $MYVIMRC<CR>
 map <leader>x :set filetype=xml<CR>
 
 " Tab settings
-set tabstop=3				" tab width of 4
-set shiftwidth=3			" shift width of 4
-set softtabstop=3			" backspace removes 4 spaces
+set tabstop=3				" tab width of 3
+set shiftwidth=3			" shift width of 3
+set softtabstop=3			" backspace removes 3spaces
 set expandtab				" always use spaces and not tabs
 
 if exists ('g:vsvim_useeditordefaults')
@@ -50,8 +48,12 @@ let g:vim_json_syntax_conceal = 0
 
 set mouse=a
 
-" have a different status line so that ruler can be shown on the left instead of far right which is annoying on widescreen monitors 
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l/%L,%v][%p%%]
+" have a different status line so that ruler can be shown on the left instead of far right which is annoying on widescreen monitors
+"set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l/%L,%v][%p%%]
+
+" setup autocmd to change the statusline since it
+" depends on a plugin
+"autocmd VimEnter * if exists ("*P4RulerStatus") | set statusline+=%=%{P4RulerStatus()} | endif
 
 set encoding=utf-8
 set scrolloff=3
@@ -98,8 +100,70 @@ nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> za
 
+" Perforce settings
+nnoremap <leader>pi :call P4Info()<cr>
+nnoremap <leader>pf :call P4Fstat()<cr>
+nnoremap <leader>po :call P4Edit()<cr>
+nnoremap <leader>pa :call P4Add()<cr>
+nnoremap <leader>pd :call P4Diff()<cr>
+
+" Linediff settings
+noremap <leader>ldt :Linediff<CR>
+noremap <leader>ldo :LinediffReset<CR>
+
+" NERDTree settings
+nnoremap <leader>nt :NERDTree d:\projects<cr>
+
 " other useful mappings
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+"airline setup for better support of status line.
+function! GetPerforceStatus()
+   let a:status = ''
+   if exists ("*P4RulerStatus")
+      let a:status = P4RulerStatus()
+   endif
+   return a:status
+endfunction
+
+function! SetAirlineErrors()
+   " change if trailing spaces and mixed indentation is set based on filetype
+   let a:ft = &filetype
+   if a:ft == 'text'
+      let g:airline#extensions#whitespace#show_message = 0
+   else
+      let g:airline#extensions#whitespace#show_message = 1
+   endif
+endfunction
+
+call airline#parts#define_function( 'perforce', 'GetPerforceStatus' )
+call airline#parts#define_accent( 'perforce', 'red' )
+
+let g:airline_section_x=airline#section#create( ['perforce', ' ', 'filetype'] )
+"let g:airline_section_z=airline#section#create( ['[%l/%L,%v][%p%%]'] )
+let g:airline#extension#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 0
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" set up some autocmds to deal with airline settings for different kinds of buffers
+autocmd BufEnter * call SetAirlineErrors()
 
