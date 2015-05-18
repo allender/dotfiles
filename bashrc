@@ -123,3 +123,4 @@ if [ -f ~/.local_bashrc ] ; then
     . ~/.local_bashrc
 fi
 
+cd ~
