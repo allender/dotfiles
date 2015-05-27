@@ -193,6 +193,16 @@ if( strlen( &rulerformat ) == 0 ) && ( P4SetRuler == 1 )
     set rulerformat=%60(%=%{P4RulerStatus()}\ %4l,%-3c\ %3p%%%)
 endif
 
+python << EOF
+def handle_exceptions( errors, warnings ):
+   for e in errors:
+      if 'is not under' not in e and 'not in client view' not in e:
+          print e
+   for w in warnings:
+      if 'is not under' not in w and 'not in client view' not in w:
+         print w
+EOF
+
 "
 " filelog
 "
@@ -218,10 +228,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -285,10 +292,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+   handle_exceptions( p4.errors, p4.warnings )
 EOF
 endfunction
 
@@ -331,10 +335,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -359,10 +360,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -387,10 +385,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -414,10 +409,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -441,10 +433,7 @@ try:
     print "File opened for delete and removed from workspace - Vim buffer no longer valid"
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -469,10 +458,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -496,10 +482,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -522,10 +505,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -551,10 +531,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -577,10 +554,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -607,10 +581,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -640,10 +611,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -670,10 +638,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -702,10 +667,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -731,10 +693,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -758,10 +717,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -788,10 +744,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -815,10 +768,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -845,10 +795,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -871,10 +818,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -899,10 +843,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -927,10 +868,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -954,10 +892,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -982,10 +917,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1009,10 +941,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1039,10 +968,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1073,10 +999,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1100,10 +1023,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1126,10 +1046,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1152,10 +1069,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1180,10 +1094,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1207,10 +1118,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1246,10 +1154,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1275,10 +1180,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1304,10 +1206,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1331,10 +1230,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1359,10 +1255,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1386,10 +1279,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1412,10 +1302,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1444,10 +1331,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1471,10 +1355,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1577,10 +1458,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1605,10 +1483,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1632,10 +1507,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1658,10 +1530,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1684,10 +1553,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1710,10 +1576,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1736,10 +1599,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1763,10 +1623,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1801,10 +1658,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1833,10 +1687,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1859,10 +1710,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1888,10 +1736,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1916,10 +1761,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -1946,10 +1788,7 @@ if accept == '-am' or accept == '-af' or accept == '-as' or accept == '-at' or a
         vim.command("edit")
 
     except P4Exception:
-        for e in p4.errors:
-            print e
-        for w in p4.warnings:
-            print w
+        handle_exceptions( p4.errors, p4,warnings )
 else:
     print("Error: you must select one of -am/-af/-as/-at/-ay")
 EOF
@@ -1974,10 +1813,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2000,10 +1836,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2026,10 +1859,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2052,10 +1882,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2078,10 +1905,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2106,10 +1930,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2138,10 +1959,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2165,10 +1983,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2194,10 +2009,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2221,10 +2033,7 @@ try:
     p4.disconnect()
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2249,10 +2058,7 @@ try:
     vim.command("edit")
 
 except P4Exception:
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 endfunction
 
@@ -2301,10 +2107,7 @@ try:
 
 except P4Exception:
     vim.command("let b:graph = \"NONE\"")
-    for e in p4.errors:
-        print e
-    for w in p4.warnings:
-        print w
+    handle_exceptions( p4.errors, p4,warnings )
 EOF
 perl << EOF
 use Graph::Easy; 
