@@ -1,3 +1,4 @@
+
 " pathogen stuff - allows me to put vim files somewhere outside of ~/.vim
 " so that I can store them (bitbucket or otherwise) and keep the synced
 " between machines
@@ -17,22 +18,35 @@ else
     set directory=/tmp
 end
 
+" set num colors appropriately for gui vs not
+if has('gui_running')
+   let g:solarized_termcolors=256
+else
+   let g:solarized_termcolors=16
+endi
+
 set bg=dark
 colorscheme solarized
 
 " change the leader to be something a little easier
 let mapleader=","
-
-" set xml folding
+"
+" " set xml folding
 let g:xml_syntax_folding=1
 
+function! CopyVimRC()
+   silent let f = system("u:/copyvim.bat")
+endfunction
+
 " settings allowing easier work with .vimrc
-if has ("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+augroup _vimrc
+   autocmd!
+   autocmd bufwritepost vimrc call CopyVimRC() | source $MYVIMRC
+augroup end
+
 nmap <leader>v :vsplit $MYVIMRC<CR>
 
-map <leader>x :set filetype=xml<CR>
+map <leader>x :set filetype=xml<CR> 
 
 " Tab settings
 set tabstop=3				" tab width of 3
@@ -83,6 +97,9 @@ set wrap
 "set textwidth=79           " I don't like this option either.  I'd like my lines to be as long as I want them
 set formatoptions=qrn1
 
+" setting for tags
+set tags=tags;/
+
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader>/ :noh<cr>
@@ -113,6 +130,9 @@ noremap <leader>ldo :LinediffReset<CR>
 
 " NERDTree settings
 nnoremap <leader>nt :NERDTree d:\projects<cr>
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " other useful mappings
 nnoremap <F2> :set invpaste paste?<CR>
@@ -163,7 +183,11 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
+ 
 " set up some autocmds to deal with airline settings for different kinds of buffers
-autocmd BufEnter * call SetAirlineErrors()
+augroup setairlineerrors
+   autocmd!
+   autocmd BufEnter * call SetAirlineErrors()
+augroup END
+
 

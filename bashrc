@@ -124,3 +124,5 @@ if [ -f ~/.local_bashrc ] ; then
 fi
 
 cd ~
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

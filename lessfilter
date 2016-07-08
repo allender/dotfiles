@@ -8,6 +8,11 @@ case "$1" in
     .bashrc|.bash_aliases|.bash_environment)
         pygmentize -O style=solarized -f 256 -l sh "$1"
         ;;
+
+    *.md)
+       pandoc -s -f markdown -t man "$1" | groff -T utf8 -man -
+       ;;
+
     *)
         grep "#\!/bin/bash" "$1" > /dev/null
         if [ "$?" -eq "0" ]; then
