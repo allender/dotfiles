@@ -34,6 +34,9 @@ let mapleader=","
 " " set xml folding
 let g:xml_syntax_folding=1
 
+" for you complete me
+let g:ycm_confirm_extra_conf = 0
+
 function! CopyVimRC()
    silent let f = system("u:/copyvim.bat")
 endfunction
