@@ -52,9 +52,9 @@ nmap <leader>v :vsplit $MYVIMRC<CR>
 map <leader>x :set filetype=xml<CR> 
 
 " Tab settings
-set tabstop=3				" tab width of 3
-set shiftwidth=3			" shift width of 3
-set softtabstop=3			" backspace removes 3spaces
+set tabstop=4				" tab width of 4
+set shiftwidth=4			" shift width of 4
+set softtabstop=4			" backspace removes 4 spaces
 set expandtab				" always use spaces and not tabs
 
 if exists ('g:vsvim_useeditordefaults')
