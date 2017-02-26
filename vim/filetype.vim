@@ -8,3 +8,6 @@ augroup filetypedetect
    au! BufRead,BufNewFile *.vse     setfiletype json 
 augroup END
 
+augroup cc
+    autocmd FileType c,cpp,cc set colorcolumn=80
+augroup END
