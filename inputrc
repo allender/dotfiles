@@ -51,7 +51,7 @@
   #set bell-style none
 
   # or, don't beep at me - show me
-  #set bell-style visible
+  set bell-style visible
 
   # Filename completion/expansion
   set completion-ignore-case on
