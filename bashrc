@@ -65,7 +65,7 @@ PS1='\n\[\033[0;32m\d \t \n\[\033[0;31m\][\#] \[\033[01;34m\]\w\[\033[00m\]: '
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+    #PS1="\[\e]0;\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
