@@ -20,6 +20,7 @@ git_bundles = [
    'https://github.com/bling/vim-airline.git',
    'https://github.com/tpope/vim-markdown.git',
    'https://github.com/vim-airline/vim-airline-themes.git',
+   'git://github.com/tmux-plugins/vim-tmux.git',
 #   'https://github.com/Valloric/YouCompleteMe.git'
    ];
 

@@ -1390,7 +1390,17 @@ python Dashboard.start()
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 # ------------------------------------------------------------------------------
-# vim: filetype=python
-# Local Variables:
+# vim: filetype=python# Local Variables:
 # mode: python
 # End:
+#
+# once the dashboard has started, redirect output to the tmux output
+# windows if they have been set up
+
+# let's not show some of the dashboard windows by default
+db threads
+db expressions
+db history
+db registers
+db source -style context 20 
+
