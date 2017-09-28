@@ -21,7 +21,9 @@ git_bundles = [
    'https://github.com/tpope/vim-markdown.git',
    'https://github.com/vim-airline/vim-airline-themes.git',
    'git://github.com/tmux-plugins/vim-tmux.git',
-#   'https://github.com/Valloric/YouCompleteMe.git'
+   'git://github.com/craigemery/vim-autotag.git',
+   'https://github.com/fatih/vim-go.git',
+   #'https://github.com/Valloric/YouCompleteMe.git'
    ];
 
 # clear out folders in the bundle folder so that we can restore
