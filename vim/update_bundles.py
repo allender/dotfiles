@@ -35,7 +35,7 @@ def remove_readonly(fn, path, excinfo):
     if fn is os.rmdir:
         os.chmod(path, stat.S_IWRITE)
         os.rmdir(path)
-    elif fn is os.remove:
+    elif fn is os.remove or fn is os.unlink:
         os.chmod(path, stat.S_IWRITE)
         os.remove(path)
 
@@ -49,7 +49,7 @@ for root,dirs,files in os.walk('.'):
 
 for bundle in git_bundles:
     bundle_name = bundle.rsplit('/', 1)[1].replace('.git','')
-    print 'Cloning {0}'.format( bundle )
+    print("Cloning %r" % ( bundle ))
     subprocess.call( ['git', 'clone', bundle] )
 
     # remove the .git folder in the bundle so that we can actually commit the
