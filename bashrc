@@ -52,7 +52,8 @@ export LESSOPEN="|~/.lessfilter %s"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-256color) color_prompt=yes;;
+xterm-256color)
+	color_prompt=yes;;
 esac
 
 # for rxvt26 (which I use in cygwin), unset the display value - pretty much a hack

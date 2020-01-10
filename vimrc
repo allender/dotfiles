@@ -20,13 +20,14 @@ end
 
 " set num colors appropriately for gui vs not
 if has('gui_running')
-   let g:solarized_termcolors=256
-else
-   let g:solarized_termcolors=16
+	let g:solarized_termcolors=256
+	set guifont=Inconsolata\ for\ Powerline:h11
+	set lines=55 columns=160
+	set bg=dark
+	colorscheme solarized
 endi
 
-set bg=dark
-colorscheme solarized
+
 
 " change the leader to be something a little easier
 let mapleader=","

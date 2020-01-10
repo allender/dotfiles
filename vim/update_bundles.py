@@ -23,6 +23,7 @@ git_bundles = [
    'git://github.com/tmux-plugins/vim-tmux.git',
    'git://github.com/craigemery/vim-autotag.git',
    'https://github.com/fatih/vim-go.git',
+   'https://github.com/lifepillar/vim-solarized8.git',
    #'https://github.com/Valloric/YouCompleteMe.git'
    ];
 
@@ -54,7 +55,9 @@ for bundle in git_bundles:
 
     # remove the .git folder in the bundle so that we can actually commit the
     # folders to git without having them look like sub repositories
-    shutil.rmtree( os.path.join(bundle_name, '.git'), onerror=remove_readonly )
+    repo_name = os.path.join(bundle_name, '.git')
+    if os.path.exists(repo_name) == True:
+        shutil.rmtree( repo_name, onerror=remove_readonly )
 
 os.chdir( '..' )
 
