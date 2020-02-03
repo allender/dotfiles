@@ -24,6 +24,7 @@ git_bundles = [
    'git://github.com/craigemery/vim-autotag.git',
    'https://github.com/fatih/vim-go.git',
    'https://github.com/lifepillar/vim-solarized8.git',
+   'https://github.com/editorconfig/editorconfig-vim.git',
    #'https://github.com/Valloric/YouCompleteMe.git'
    ];
 

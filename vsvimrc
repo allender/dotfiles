@@ -1,0 +1,47 @@
+" change the leader to be something a little easier
+let mapleader=","
+
+" use editor defaults, which I want to use when using visual studio
+set vsvim_useeditordefaults
+
+set mousemodel=extend
+
+set scrolloff=3
+set autoindent
+set showcmd
+set visualbell
+set backspace=indent,eol,start
+set number
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set hlsearch
+
+" line wrapping
+set wrap
+
+" visual studio mappings
+map gi :vsc Edit.GoToImplementation<CR>
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+nnoremap <leader>M :vsc Edit.PreviousMethod<cr>
+
+nnoremap / /\v
+vnoremap / /\v
+nnoremap <leader>/ :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+" prevent help from opening on accident when reaching for ESC key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" fold settings
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> za
+
+

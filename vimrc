@@ -45,6 +45,11 @@ augroup _vimrc
    autocmd bufwritepost vimrc call CopyVimRC() | source $MYVIMRC
 augroup end
 
+augroup _vsvimrc
+   autocmd!
+   autocmd bufwritepost vsvimrc call CopyVimRC()
+augroup end
+
 nmap <leader>v :vsplit $MYVIMRC<CR>
 
 map <leader>x :set filetype=xml<CR> 
