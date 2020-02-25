@@ -1,4 +1,4 @@
-" This is another test
+" This  is another test
 
 " pathogen stuff - allows me to put vim files somewhere outside of ~/.vim
 " so that I can store them (bitbucket or otherwise) and keep the synced
@@ -7,24 +7,28 @@
 filetype off				"  Good idea to set this before calling pathogen
 call plug#begin('~/vimfiles/plugins')
 " all plugins
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'https://github.com/scrooloose/nerdcommenter.git',
-Plug 'https://github.com/elzr/vim-json.git',
-Plug 'git://github.com/AndrewRadev/linediff.vim.git',
-Plug 'https://github.com/henrik/vim-indexed-search.git',
-Plug 'https://github.com/tpope/vim-markdown.git',
-Plug 'https://github.com/vim-airline/vim-airline.git',
-Plug 'https://github.com/vim-airline/vim-airline-themes.git',
-Plug 'git://github.com/tmux-plugins/vim-tmux.git',
-Plug 'git://github.com/craigemery/vim-autotag.git',
-Plug 'https://github.com/lifepillar/vim-solarized8.git',
-Plug 'https://github.com/editorconfig/editorconfig-vim.git',
+Plug 'tpope/vim-fugitive',
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdcommenter',
+Plug 'elzr/vim-json',
+Plug 'AndrewRadev/linediff.vim',
+Plug 'henrik/vim-indexed-search',
+Plug 'tpope/vim-markdown',
+Plug 'vim-airline/vim-airline',
+Plug 'vim-airline/vim-airline-themes',
+Plug 'majutsushi/tagbar',
+Plug 'jmcantrell/vim-virtualenv',
+Plug 'tmux-plugins/vim-tmux',
+Plug 'craigemery/vim-autotag',
+Plug 'lifepillar/vim-solarized8',
+Plug 'editorconfig/editorconfig-vim',
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+Plug 'ngemily/vim-vp4'
+Plug 'tpope/vim-rhubarb'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 call plug#end()
 
 filetype plugin indent on
@@ -34,9 +38,9 @@ syntax on
 
 " set the swap directory to some tmp folder
 if has("win32") || has("win64")
-    set directory=$TMP
+	set directory=$TMP
 else
-    set directory=/tmp
+	set directory=/tmp
 end
 
 " set num colors appropriately for gui vs not
@@ -55,23 +59,23 @@ let mapleader=","
 let g:xml_syntax_folding=1
 
 function! CopyVimRC()
-   silent let f = system("u:/copyvim.bat")
+	silent let f = system("u:/copyvim.bat")
 endfunction
 
 " settings allowing easier work with .vimrc
 augroup _vimrc
-   autocmd!
-   autocmd bufwritepost vimrc call CopyVimRC() | source $MYVIMRC
+	autocmd!
+	autocmd bufwritepost vimrc call CopyVimRC() | source $MYVIMRC
 augroup end
 
 augroup _vsvimrc
-   autocmd!
-   autocmd bufwritepost vsvimrc call CopyVimRC()
+	autocmd!
+	autocmd bufwritepost vsvimrc call CopyVimRC()
 augroup end
 
 nmap <leader>v :vsplit $MYVIMRC<CR>
 
-map <leader>x :set filetype=xml<CR> 
+map <leader>x :set filetype=xml<CR>
 
 " Tab settings
 set tabstop=4				" tab width of 4
@@ -79,7 +83,7 @@ set shiftwidth=4			" shift width of 4
 set softtabstop=4			" backspace removes 4 spaces
 
 if exists ('g:vsvim_useeditordefaults')
-   set vsvim_useeditordefaults
+	set vsvim_useeditordefaults
 endif
 
 let g:vim_json_syntax_conceal = 0
@@ -163,32 +167,32 @@ set showmode
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
+	runtime! macros/matchit.vim
 endif
 
 "airline setup for better support of status line.
 function! GetPerforceStatus()
-   let status = ''
-   if exists ("*P4RulerStatus")
-      let status = P4RulerStatus()
-   endif
-   return status
+	let status = ''
+	if exists ("*P4RulerStatus")
+		let status = P4RulerStatus()
+	endif
+	return status
 endfunction
 
 function! SetAirlineErrors()
-   " change if trailing spaces and mixed indentation is set based on filetype
-   " let ft = &filetype
-   " if ft == 'text'
-   "    let g:airline#extensions#whitespace#show_message = 0
-   " else
-   "    let g:airline#extensions#whitespace#show_message = 1
-   " endif
+	" change if trailing spaces and mixed indentation is set based on filetype
+	" let ft = &filetype
+	" if ft == 'text'
+	"    let g:airline#extensions#whitespace#show_message = 0
+	" else
+	"    let g:airline#extensions#whitespace#show_message = 1
+	" endif
 endfunction
 
 " set up some autocmds to deal with airline settings for different kinds of buffers
 augroup setairlineerrors
-   autocmd!
-   autocmd BufEnter * call SetAirlineErrors()
+	autocmd!
+	autocmd BufEnter * call SetAirlineErrors()
 augroup END
 
 "call airline#parts#define_function( 'perforce', 'GetPerforceStatus' )
@@ -196,9 +200,10 @@ augroup END
 
 "let g:airline_section_x=airline#section#create( ['perforce', ' ', 'filetype'] )
 " let g:airline_section_z=airline#section#create( ['[%l/%L,%v][%p%%]'] )
-let g:airline#extensions#whitespace#show_message = 0
-let g:airline#extension#tabline#enabled = 1
+"
+let g:airline_extensions = [ 'branch', 'tabline', 'whitespace',
+	\   'virtualenv', 'tagbar' ]
+"let g:airline#extensions#whitespace#show_message = 0
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 0
 let g:airline_section_x=airline#section#create( ['filetype', ' ', '%{CodeStatsXp()}'] )
 
