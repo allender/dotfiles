@@ -22,10 +22,13 @@ set hlsearch
 set wrap
 
 " visual studio mappings
-map gi :vsc Edit.GoToImplementation<CR>
+map gi :vsc Edit.GoToDefinition<CR>
+map gd :vsc Edit.GoToDeclaration<CR>
 nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
 nnoremap <leader>m :vsc Edit.NextMethod<cr>
 nnoremap <leader>M :vsc Edit.PreviousMethod<cr>
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
 
 nnoremap / /\v
 vnoremap / /\v
