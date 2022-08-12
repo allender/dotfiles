@@ -1,12 +1,15 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#!/usr/bin/bash
+echo first
 
-#
 # for gnome-terminal on Ubuntu, force the 256 color terminal
 if [ "$COLORTERM" == "gnome-terminal" ] ; then
     export TERM=xterm-256color
 fi
+
+echo second
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -23,6 +26,8 @@ shopt -s histappend
 
 # account for spelling poblems when changing folders
 #shopt -s cdspell 
+
+echo third
 
 # use CDPATH for better and easier movement between directories
 export CDPATH=.:~:~/projects
@@ -51,26 +56,15 @@ export LESS="-x3 -R"
 export LESSOPEN="|~/.lessfilter %s"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-256color)
-	color_prompt=yes;;
-esac
+#case $TERM in
+	#xterm-256color) color_prompt=yes ;;
+	#rxwt-256color) DISPLAY= ;;
+	#xterm*|rxvt*) PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
+	#*) ;;
+#esac
 
-# for rxvt26 (which I use in cygwin), unset the display value - pretty much a hack
-if [ "$TERM" == "rxvt-256color" ] ; then
-    DISPLAY=
-fi
 
 PS1='\n\[\033[0;32m\d \t \n\[\033[0;31m\][\#] \[\033[01;34m\]\w\[\033[00m\]: '
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    #PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

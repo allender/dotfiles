@@ -12,7 +12,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter',
 Plug 'elzr/vim-json',
 Plug 'AndrewRadev/linediff.vim',
-Plug 'henrik/vim-indexed-search',
+Plug 'google/vim-searchindex',
 Plug 'tpope/vim-markdown',
 Plug 'vim-airline/vim-airline',
 Plug 'vim-airline/vim-airline-themes',
@@ -25,10 +25,12 @@ Plug 'editorconfig/editorconfig-vim',
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'allender/vim-vp4'
 Plug 'tpope/vim-rhubarb'
+Plug 'vim-scripts/paredit.vim'
 
 " on demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'vlime/vlime', { 'rtp': 'vim/' }
 call plug#end()
 
 filetype plugin indent on
@@ -46,7 +48,7 @@ end
 " set num colors appropriately for gui vs not
 if has('gui_running')
 	let g:solarized_termcolors=256
-	set guifont=Input
+	set guifont=InputMono:h10
 	set lines=55 columns=160
 	set bg=dark
 	colorscheme solarized
@@ -58,19 +60,10 @@ let mapleader=","
 " " set xml folding
 let g:xml_syntax_folding=1
 
-function! CopyVimRC()
-	silent let f = system("u:/copyvim.bat")
-endfunction
-
 " settings allowing easier work with .vimrc
 augroup _vimrc
 	autocmd!
-	autocmd bufwritepost vimrc call CopyVimRC() | source $MYVIMRC
-augroup end
-
-augroup _vsvimrc
-	autocmd!
-	autocmd bufwritepost vsvimrc call CopyVimRC()
+	autocmd bufwritepost $MYVIMRC source $MYVIMRC
 augroup end
 
 nmap <leader>v :vsplit $MYVIMRC<CR>
@@ -157,8 +150,6 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Code stats
-"let g:codestats_api_key = 'SFMyNTY.WVd4c1pXNWtaWEk9IyNNekE9.ri-dvVrlAjzNNHOec_IVNnYGo_WgiLruzRLb4wKwn1Y'
-" let g:codestats_api_url = 'https://beta.codestats.net'
 let g:codestats_api_key = 'SFMyNTY.WVd4c1pXNWtaWEk9IyNPRGszTVE9PQ.bQrRQ-FLtF_IcqDEab65PYWB5aVvNikaMc4K-b3dtk4'
 
 " other useful mappings
@@ -168,7 +159,7 @@ set showmode
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-	runtime! macros/matchit.vim
+runtime! macros/matchit.vim
 endif
 
 "airline setup for better support of status line.
@@ -206,5 +197,6 @@ let g:airline_extensions = [ 'branch', 'tabline', 'whitespace',
 	\   'virtualenv', 'tagbar' ]
 "let g:airline#extensions#whitespace#show_message = 0
 let g:airline_powerline_fonts = 1
-let g:airline_section_x=airline#section#create( ['filetype', ' ', '%{CodeStatsXp()}'] )
+let g:airline_section_x=airline#section#create( ['filetype'] )
+" let g:airline_section_x=airline#section#create( ['filetype', ' ', '%{CodeStatsXp()}'] )
 
