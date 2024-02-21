@@ -22,7 +22,6 @@ Plug 'tmux-plugins/vim-tmux',
 Plug 'craigemery/vim-autotag',
 Plug 'lifepillar/vim-solarized8',
 Plug 'editorconfig/editorconfig-vim',
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'allender/vim-vp4'
 Plug 'tpope/vim-rhubarb'
 Plug 'vim-scripts/paredit.vim'
@@ -48,7 +47,7 @@ end
 " set num colors appropriately for gui vs not
 if has('gui_running')
 	let g:solarized_termcolors=256
-	set guifont=InputMono:h10
+	set guifont=Inconsolata\ for\ Powerline:h12
 	set lines=55 columns=160
 	set bg=dark
 	colorscheme solarized
